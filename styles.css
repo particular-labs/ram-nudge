@@ -1,13 +1,112 @@
-:root { color-scheme: light dark; --accent: #1a73e8; --accent-bg: #1a73e8; --bad: #b3261e; --bad-text: #b3261e; }
-@media (prefers-color-scheme: dark) { :root { --accent: #8ab4f8; --bad-text: #f28b82; } }
-body { font: 14px/1.45 system-ui, sans-serif; margin: 0; padding: 16px; }
-main { max-width: 36rem; }
-h1 { font-size: 1.15rem; margin: 0 0 .5rem; }
+/* RAM Nudge — Direction B "Friendly tap". Swap in: copy over /styles.css, icons/ and fonts/ alongside. */
+@font-face { font-family: "Nunito"; src: url(fonts/nunito.woff2) format("woff2"); font-weight: 200 1000; font-display: swap; }
+:root {
+  color-scheme: light dark;
+  --bg: #fff8ee;        /* warm cream, like a kitchen note */
+  --surface: #ffffff;
+  --text: #2b2118;
+  --muted: #6b5c4f;
+  --line: #efe2d0;
+  --accent: #22704f;    /* leaf green: fine, primary, success */
+  --accent-ink: #ffffff;
+  --accent-wash: #e2f1e8;
+  --low: #a83d1c;       /* coral text: a tap, not a siren */
+  --radius: 16px;
+  --font: "Nunito", ui-rounded, system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1813; --surface: #26211b; --text: #f5ede2; --muted: #c2b5a6; --line: #3a332a;
+    --accent: #7fd3a6; --accent-ink: #0f2419; --accent-wash: #1f3328;
+    --low: #ff9f7f;
+  }
+}
+
+body { font: 15px/1.5 var(--font); font-weight: 500; margin: 0; padding: 18px 20px 16px; background: var(--bg); color: var(--text); }
+main { max-width: 34rem; }
+h1 { font-size: 1.3rem; font-weight: 800; letter-spacing: -.01em; line-height: 1.25; margin: 0 0 .2rem; }
+p { margin: 0 0 1rem; }
+.muted { color: var(--muted); }
+strong { font-weight: 800; }
 button, .link { font: inherit; cursor: pointer; }
-button { padding: .55rem .9rem; border: 0; border-radius: 6px; background: var(--accent-bg); color: #fff; }
-.link { background: none; color: var(--accent); padding: .25rem 0; text-align: left; text-decoration: underline; }
-body.high h1 { color: var(--bad-text); }
-body.high button#restart { background: var(--bad); }
-.muted { opacity: .75; }
-label { display: block; margin: 1rem 0 .25rem; }
-input { font: inherit; width: 6rem; padding: .3rem; }
+button {
+  display: block; width: 100%; padding: .75rem 1rem; border-radius: 999px; border: 0;
+  background: var(--accent); color: var(--accent-ink); font-weight: 800; font-size: 1rem;
+}
+button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.link {
+  display: inline; width: auto; background: none; color: var(--accent); padding: .3rem 0;
+  font-weight: 700; font-size: inherit; text-align: left; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px;
+}
+label { display: block; margin: 1.25rem 0 .35rem; font-weight: 800; }
+input {
+  font: inherit; width: 6rem; padding: .5rem .8rem; border-radius: 12px;
+  border: 2px solid var(--line); background: var(--surface); color: var(--text);
+}
+
+/* Footer signature, understated (draft copy keys footerBy / footerPrivacy): small, unboxed, the PL mark signs it. */
+main::after {
+  content: "__MSG_footerBy__\A __MSG_footerPrivacy__"; white-space: pre-line; display: block;
+  margin-top: 1rem; padding-left: 17px; font-size: 11px; line-height: 1.5; font-weight: 500; color: var(--muted); opacity: .85;
+  background: url(icons/pl-mark-muted.svg) 0 .2em / 11px no-repeat;
+}
+
+/* ---- Popup: the pebble companion shows the mood; one big friendly button. ---- */
+main:has(#pebble) { display: grid; grid-template-columns: 64px 1fr; column-gap: 14px; }
+main > * , main::after { grid-column: 1 / -1; }
+#pebble {
+  grid-column: 1; grid-row: 1; align-self: center; width: 64px; height: 64px; cursor: pointer;
+  background: var(--face) center / contain no-repeat; transform-origin: 50% 94%;
+  transition: translate .2s ease;
+}
+#state { grid-column: 2; grid-row: 1; align-self: center; margin: 0; }
+#detail { grid-column: 1 / -1; grid-row: 2; margin: .55rem 0 0; }
+#restart { margin-top: 1rem; }
+#pebble[data-stage="0"] { --face: url(stages/stage-0.svg); --squish: url(stages/stage-0.svg); }
+#pebble[data-stage="1"] { --face: url(stages/stage-1.svg); --squish: url(stages/stage-1-squish.svg); }
+#pebble[data-stage="2"] { --face: url(stages/stage-2.svg); --squish: url(stages/stage-2-squish.svg); }
+#pebble[data-stage="3"] { --face: url(stages/stage-3.svg); --squish: url(stages/stage-3-squish.svg); animation: wobble 9s ease-in-out infinite; }
+#pebble[data-stage="4"] { --face: url(stages/stage-4.svg); --squish: url(stages/stage-4-squish.svg); animation: shiver 7s linear infinite; }
+#pebble[data-stage="5"] { --face: url(stages/stage-5.svg); --squish: url(stages/stage-5-squish.svg); animation: sag 6s ease-in-out infinite; }
+#pebble:hover { translate: 0 -3px; }
+#pebble[data-mood="poke"] { background-image: var(--squish); animation: poke .45s ease-out; }
+#pebble[data-mood="relief"] { background-image: url(stages/relief.svg); animation: hop .7s ease-out 2; }
+/* Calm faces stay still; stressed ones twitch once every few seconds, then rest (Lennick: "just a progression"). */
+@keyframes wobble { 0%, 88%, 100% { rotate: 0deg; } 91% { rotate: -4deg; } 95% { rotate: 4deg; } }
+@keyframes shiver { 0%, 85%, 100% { translate: 0; } 87%, 91%, 95% { translate: -1px 0; } 89%, 93%, 97% { translate: 1px 0; } }
+@keyframes sag { 0%, 80%, 100% { scale: 1; } 90% { scale: 1.05 .93; } }
+@keyframes poke { 30% { scale: 1.16 .82; } 65% { scale: .94 1.08; } }
+@keyframes hop { 40% { translate: 0 -9px; scale: .96 1.05; } 80% { translate: 0; scale: 1.06 .95; } }
+@media (prefers-reduced-motion: reduce) { #pebble, #pebble[data-mood] { animation: none; transition: none; } }
+
+body:not(.high) #restart { background: var(--accent-wash); color: var(--accent); }
+/* restartHint: always visible under Restart, quiet helper text. */
+#guide { margin: .55rem 2px 0; font-size: 13px; line-height: 1.45; }
+#guide + p { margin: .9rem 0 1.1rem; }
+/* "Free memory now": a quiet link-style action under Restart, its hint, then its result in the same line. */
+#sleep { font-size: 14.5px; }
+#sleep:disabled { opacity: .55; cursor: progress; }
+#sleepNote { display: block; margin-top: .1rem; font-size: 13px; line-height: 1.45; }
+#sleepNote[data-result="done"] { color: var(--accent); font-weight: 700; }
+#sleepNote[data-result="done"]::before { content: "✓ "; }
+#sleepNote[data-result="failed"] { color: var(--low); }
+body.high #state { color: var(--low); }
+body.high #restart { background: var(--accent); color: var(--accent-ink); }
+
+/* ---- Welcome + options: a friendly note card. ---- */
+main:has(#open), main:has(input) {
+  margin: 8vh auto; padding: 2.25rem 2.5rem; background: var(--surface); border-radius: 24px;
+  box-shadow: 0 1px 0 var(--line), 0 12px 40px -20px rgb(60 40 20 / .25);
+}
+main:has(#open) h1, main:has(input) h1 {
+  font-size: 2rem; padding-top: 76px; margin-bottom: .75rem; background: url(stages/stage-1.svg) 0 0 / 64px no-repeat;
+}
+main:has(#open) h1 + p { font-size: 1.1rem; }
+#open { width: auto; display: inline-block; padding: .8rem 1.4rem; }
+main:has(#open) strong { display: block; padding: .9rem 1.1rem; border-radius: 14px; background: var(--accent-wash); }
+main:has(#open)::after, main:has(input)::after { background-color: var(--bg); }
+@media (max-width: 500px) {
+  main:has(#open), main:has(input) { margin: 0; padding: 1.25rem 0; border-radius: 0; box-shadow: none; background: none; }
+  main:has(#open) h1, main:has(input) h1 { font-size: 1.6rem; }
+  #open { width: 100%; font-size: .9rem; padding: .8rem .75rem; }
+}

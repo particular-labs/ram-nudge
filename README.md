@@ -1,14 +1,20 @@
 # RAM Nudge
 
 A small, free Chrome extension (working name). It watches your computer's free
-memory. When it runs low, it shows a badge and one notification, and the popup
+memory. When it runs low, its toolbar face changes mood, you get one notification, and the popup
 offers **Restart Chrome**. After the restart your tabs come back.
 
 ## What it does
 
 - Checks available system memory every 30 seconds. "Low" means available memory below 15%
   (change it in Settings); it goes back to normal above 20%.
-- Shows a `!` badge and one notification per low-memory episode, with
+- The toolbar icon is a small pebble whose face follows free memory in five stages
+  (calm, strained, sweating, red, melting). It changes only when the stage changes,
+  winces when things get worse, and sighs now and then while memory is tight; there
+  is no continuous animation. The tick counter behind the sighs is kept in the browser's
+  session storage, so the rhythm survives the worker going to sleep. Its tooltip says
+  the same thing as the popup heading.
+- Shows one notification per low-memory episode, with
   **Restart Chrome** and **Snooze** buttons. Snooze holds the next nudge back
   for the snooze length; if memory is still low afterwards, you get one more.
 - The popup shows memory state, open tab count and the restart button. **Free memory
@@ -25,7 +31,7 @@ It only talks about your **computer's** memory. Chrome's own memory use is not
 measurable by extensions on stable Chrome, so it never claims otherwise.
 
 If no notification appears on macOS, allow notifications for Google Chrome in
-System Settings > Notifications. The badge and popup work either way.
+System Settings > Notifications. The pebble and popup work either way.
 
 ## About the restart button
 
@@ -66,6 +72,12 @@ request.
 
 `npm test` runs the unit tests for the threshold logic (Node 20+, no dependencies).
 There is no build step.
+
+## Credits
+
+The Nunito font (Vernon Adams, Jacques Le Bailly and contributors) is bundled under
+the SIL Open Font License, see `fonts/OFL.txt`. No fonts or images are loaded from
+the internet.
 
 ## License
 

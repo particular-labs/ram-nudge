@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { availablePct, nextHigh, step, snooze, normalize, FRESH_STATE, DEFAULTS } from '../lib/threshold.js';
+import { availablePct, step, snooze, normalize, FRESH_STATE, DEFAULTS } from '../lib/threshold.js';
 
 const cfg = DEFAULTS; // high below 15%, clears above 20%, snooze 60 min
 const MIN = 60_000;
@@ -8,14 +8,6 @@ const MIN = 60_000;
 test('availablePct handles zero capacity', () => {
   assert.equal(availablePct({ capacity: 200, availableCapacity: 50 }), 25);
   assert.equal(availablePct({ capacity: 0, availableCapacity: 0 }), 100);
-});
-
-test('hysteresis: enters below 15, stays high through 20, clears above 20', () => {
-  assert.equal(nextHigh(false, 15, cfg), false); // boundary is strict
-  assert.equal(nextHigh(false, 14.9, cfg), true);
-  assert.equal(nextHigh(true, 20, cfg), true);
-  assert.equal(nextHigh(true, 20.1, cfg), false);
-  assert.equal(nextHigh(false, 18, cfg), false); // in the band but was normal: stays normal
 });
 
 test('one nudge per episode, none while normal', () => {
@@ -48,4 +40,12 @@ test('normalize clamps and falls back on bad input', () => {
   assert.deepEqual(normalize({ highBelowPct: '', snoozeMinutes: 'abc' }), DEFAULTS);
   assert.deepEqual(normalize({ highBelowPct: 1, snoozeMinutes: 99999 }), { highBelowPct: 5, snoozeMinutes: 1440 });
   assert.deepEqual(normalize({ highBelowPct: '90', snoozeMinutes: 30.4 }), { highBelowPct: 90, snoozeMinutes: 30 });
+});
+
+import { normalizeState } from '../lib/threshold.js';
+test('normalizeState: valid state passes, old shape migrates, garbage falls back', () => {
+  assert.deepEqual(normalizeState({ stage: 3, notifyAfter: null, ticks: 4, shown: 3 }), { stage: 3, notifyAfter: null, ticks: 4, shown: 3 });
+  assert.deepEqual(normalizeState({ high: true, notifyAfter: null }), { stage: 4, notifyAfter: null, ticks: 0, shown: null });
+  assert.deepEqual(normalizeState(undefined), { stage: 1, notifyAfter: 0, ticks: 0, shown: null });
+  assert.deepEqual(normalizeState({ stage: 99, notifyAfter: 'x', ticks: -1, shown: 0 }), { stage: 1, notifyAfter: 0, ticks: 0, shown: null });
 });

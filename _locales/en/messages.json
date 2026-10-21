@@ -108,5 +108,14 @@
   },
   "sleepFailed": {
     "message": "Couldn't put tabs to sleep."
+  },
+  "popupFilling": {
+    "message": "Memory is getting full"
+  },
+  "footerBy": {
+    "message": "by Particular Labs · open source"
+  },
+  "footerPrivacy": {
+    "message": "Free, no account. Nothing leaves your browser."
   }
 }

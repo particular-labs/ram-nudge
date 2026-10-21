@@ -108,5 +108,14 @@
   },
   "sleepFailed": {
     "message": "No se pudieron dormir las pestañas."
+  },
+  "popupFilling": {
+    "message": "La memoria se está llenando"
+  },
+  "footerBy": {
+    "message": "por Particular Labs · código abierto"
+  },
+  "footerPrivacy": {
+    "message": "Gratis, sin cuenta. Nada sale de tu navegador."
   }
 }
