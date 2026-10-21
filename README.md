@@ -11,7 +11,11 @@ offers **Restart Chrome**. After the restart your tabs come back.
 - Shows a `!` badge and one notification per low-memory episode, with
   **Restart Chrome** and **Snooze** buttons. Snooze holds the next nudge back
   for the snooze length; if memory is still low afterwards, you get one more.
-- The popup shows memory state, open tab count and the restart button.
+- The popup shows memory state, open tab count and the restart button. **Free memory
+  now** puts your other tabs to sleep (Chrome's tab discarding): the tab in front in
+  each window, pinned tabs, tabs playing sound and tabs you excluded from Chrome's
+  Memory Saver stay as they are. Sleeping tabs reload when you click them, so
+  unsaved work inside a page can be lost.
 - The welcome page and a popup link open Chrome's startup settings so you can
   choose **Continue where you left off**. Chrome does not let extensions read
   that setting, so the extension cannot check it for you.

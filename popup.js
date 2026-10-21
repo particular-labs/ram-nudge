@@ -1,5 +1,6 @@
 import { applyI18n, t } from './lib/i18n.js';
 import { RESTART_URL, pasteKeyLabel } from './lib/restart.js';
+import { tabsToSleep } from './lib/sleep.js';
 
 applyI18n();
 const $ = id => document.getElementById(id);
@@ -15,6 +16,20 @@ async function startRestart() {
 }
 $('guide').textContent = t('restartHint', [pasteKeyLabel(navigator.platform)]);
 $('restart').onclick = startRestart;
+// "Free memory now": discard (put to sleep) the tabs that are not in front; they reload when clicked.
+async function sleepTabs() {
+  $('sleep').disabled = true; // a second click while the first runs would overwrite its count
+  try {
+    const ids = tabsToSleep(await chrome.tabs.query({}));
+    const slept = (await Promise.all(ids.map(id => chrome.tabs.discard(id).then(Boolean, () => false)))).filter(Boolean).length;
+    $('sleepNote').textContent = ids.length ? t('sleepDone', [String(slept)]) : t('sleepNone');
+  } catch {
+    $('sleepNote').textContent = t('sleepFailed');
+  } finally {
+    $('sleep').disabled = false;
+  }
+}
+$('sleep').onclick = sleepTabs;
 $('setup').onclick = () => chrome.tabs.create({ url: 'chrome://settings/onStartup' });
 $('options').onclick = () => chrome.runtime.openOptionsPage();
 

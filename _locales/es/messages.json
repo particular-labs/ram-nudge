@@ -88,5 +88,25 @@
         "content": "$1"
       }
     }
+  },
+  "sleepBtn": {
+    "message": "Liberar memoria ahora"
+  },
+  "sleepHint": {
+    "message": "Pone tus otras pestañas a dormir; se recargan al hacer clic en ellas."
+  },
+  "sleepDone": {
+    "message": "Pestañas dormidas: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "sleepNone": {
+    "message": "No hay otras pestañas para dormir."
+  },
+  "sleepFailed": {
+    "message": "No se pudieron dormir las pestañas."
   }
 }

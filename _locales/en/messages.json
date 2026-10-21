@@ -88,5 +88,25 @@
         "content": "$1"
       }
     }
+  },
+  "sleepBtn": {
+    "message": "Free memory now"
+  },
+  "sleepHint": {
+    "message": "Puts your other tabs to sleep; they reload when you click them."
+  },
+  "sleepDone": {
+    "message": "Tabs put to sleep: $COUNT$",
+    "placeholders": {
+      "count": {
+        "content": "$1"
+      }
+    }
+  },
+  "sleepNone": {
+    "message": "No other tabs to put to sleep."
+  },
+  "sleepFailed": {
+    "message": "Couldn't put tabs to sleep."
   }
 }
