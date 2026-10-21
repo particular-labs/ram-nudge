@@ -45,3 +45,23 @@ test('EN and ES are static, locally linked, correctly localized and share instal
     assert.ok((await stat(resolve(site, url))).isFile());
   }
 });
+
+test('privacy pages (EN + ES) state the policy, list every permission, and are linked from the footers', async () => {
+  const manifest = JSON.parse(await readFile(new URL('../manifest.json', import.meta.url)));
+  const privacy = ['privacy.html', 'es/privacy.html'];
+  for (const [i, page] of privacy.entries()) {
+    const html = await readFile(resolve(site, page), 'utf8');
+    assert.match(html, new RegExp(`<html lang="${i ? 'es' : 'en'}">`));
+    assert.doesNotMatch(html, /<script\b|\bon\w+=/i);
+    assert.ok(html.includes('mailto:admin@particularlabs.com'));
+    for (const permission of manifest.permissions) assert.ok(html.includes(`<code>${permission}</code>`), permission);
+    assert.ok(attrs(html).some(({ value }) => resolve(dirname(resolve(site, page)), value) === resolve(site, privacy[1 - i])), 'links to the other language');
+    for (const { value } of attrs(html)) {
+      if (/^(?:https?|mailto):/.test(value)) continue;
+      const path = value.split('#')[0];
+      assert.ok((await stat(path ? resolve(dirname(resolve(site, page)), path) : resolve(site, page))).isFile(), value);
+    }
+    const home = await readFile(resolve(site, pages[i]), 'utf8');
+    assert.ok(attrs(home).some(({ value }) => value === 'privacy.html'), 'footer links to the privacy page');
+  }
+});

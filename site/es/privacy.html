@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacidad — RAM Nudge</title>
+  <meta name="description" content="RAM Nudge no recopila datos ni envía nada a ningún lado. Todo se queda en tu navegador.">
+  <link rel="alternate" hreflang="en" href="../privacy.html">
+  <link rel="alternate" hreflang="es" href="privacy.html">
+  <link rel="icon" href="../img/favicon.png">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header>
+  <a href="index.html">RAM Nudge</a>
+  <nav aria-label="Idioma"><a href="../privacy.html" lang="en">EN</a><a href="privacy.html" lang="es" aria-current="page">ES</a></nav>
+</header>
+<main id="main">
+  <section aria-labelledby="title">
+    <h1 id="title" style="font-size:clamp(2.4rem,6vw,3.6rem)">Privacidad</h1>
+    <p class="pitch">RAM Nudge no recopila datos ni envía nada a ningún lado. Todo se queda en tu dispositivo.</p>
+    <p class="quiet">Última actualización: 21 de octubre de 2026.</p>
+  </section>
+  <section aria-labelledby="what">
+    <h2 id="what">Qué hace RAM Nudge con tus datos</h2>
+    <ul>
+      <li><strong>No se recopilan datos.</strong> Sin cuenta, sin analíticas, sin anuncios, sin rastreo, sin informes de fallos.</li>
+      <li><strong>No se envía ningún dato.</strong> La extensión no hace solicitudes de red y no carga código, fuentes ni imágenes remotas. No habla con ningún servidor, ni nuestro ni de nadie más.</li>
+      <li><strong>Todo se queda en tu dispositivo.</strong> Las lecturas de memoria libre se usan al instante para elegir el ánimo de la piedrita y decidir cuándo avisarte. Tus ajustes (el umbral de poca memoria y el tiempo de posposición) y el estado de los avisos (ánimo actual, posponer, un contador pequeño) se guardan en tu navegador con el almacenamiento de extensiones de Chrome. El estado de los avisos se borra cada vez que Chrome se reinicia; todo se elimina al desinstalar la extensión.</li>
+      <li><strong>Tus pestañas siguen siendo privadas.</strong> RAM Nudge cuenta tus pestañas (la ventana muestra el número). Al hacer clic en <em>Liberar memoria ahora</em>, duerme las que no estás usando. Nunca lee sus títulos, direcciones ni contenido.</li>
+      <li><strong>Al portapapeles solo se escribe.</strong> Al hacer clic en <em>Reiniciar Chrome</em>, copia el texto <code>chrome://restart</code> para que lo pegues. Nunca lee tu portapapeles.</li>
+    </ul>
+  </section>
+  <section aria-labelledby="perms">
+    <h2 id="perms">Permisos, y para qué</h2>
+    <dl>
+      <dt><code>system.memory</code></dt><dd>Leer la memoria total y libre, para que la piedrita sepa cuándo tu computadora anda justa.</dd>
+      <dt><code>alarms</code></dt><dd>Revisar la memoria cada 30 segundos, incluso con la ventana cerrada.</dd>
+      <dt><code>storage</code></dt><dd>Guardar tus ajustes y el estado de los avisos en tu navegador.</dd>
+      <dt><code>notifications</code></dt><dd>Mostrar el aviso de poca memoria.</dd>
+    </dl>
+    <p>No se piden permisos de acceso a pestañas, historial, sitios web ni cuentas.</p>
+  </section>
+  <section aria-labelledby="more">
+    <h2 id="more">Cambios y contacto</h2>
+    <p>Si esto cambia, se actualizará aquí y en las notas de la versión antes de publicarla. RAM Nudge es código abierto bajo licencia MIT: <a href="https://github.com/particular-labs/ram-nudge">lee el código en GitHub</a>.</p>
+    <p>¿Preguntas? Escribe a <a href="mailto:admin@particularlabs.com">admin@particularlabs.com</a>.</p>
+  </section>
+</main>
+<footer><a href="https://github.com/particular-labs/ram-nudge">por Particular Labs · código abierto</a><br>Gratis, sin cuenta. Nada sale de tu navegador.</footer>
+</body>
+</html>

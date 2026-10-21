@@ -80,15 +80,18 @@ export async function packFiles({ source = root, output = resolve(root, 'dist') 
   const prefix = `ram-nudge-${version}`;
   const entries = files.map(f => ({ ...f, name: `${prefix}/${f.name}` }));
   const zip = buildZip(entries), filename = `${prefix}-chrome.zip`;
+  // Chrome Web Store upload: same files, manifest.json at the archive root (no top folder).
+  const storeZip = buildZip(files), storeFilename = `${prefix}-store.zip`;
   // The top-level archive digest supports download verification; files audits every member.
-  const sums = { version, [filename]: sha256(zip), files: Object.fromEntries(entries.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0).map(f => [f.name, sha256(f.data)])) };
+  const sums = { version, [filename]: sha256(zip), [storeFilename]: sha256(storeZip), files: Object.fromEntries(entries.sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0).map(f => [f.name, sha256(f.data)])) };
   await mkdir(output, { recursive: true });
   await writeFile(resolve(output, filename), zip);
+  await writeFile(resolve(output, storeFilename), storeZip);
   await writeFile(resolve(output, 'SHA256SUMS.json'), `${JSON.stringify(sums, null, 2)}\n`);
-  return { filename, zip, sums };
+  return { filename, zip, storeFilename, storeZip, sums };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const { filename, zip, sums } = await packFiles();
-  console.log(`${filename}: ${zip.length} bytes\nSHA256 ${sums[filename]}\nSHA256SUMS.json: archive + per-file hashes`);
+  const { filename, zip, storeFilename, storeZip, sums } = await packFiles();
+  console.log(`${filename}: ${zip.length} bytes\nSHA256 ${sums[filename]}\n${storeFilename}: ${storeZip.length} bytes\nSHA256 ${sums[storeFilename]}\nSHA256SUMS.json: archives + per-file hashes`);
 }

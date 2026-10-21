@@ -81,6 +81,9 @@ There is no auto-update until the Chrome Web Store version. Chrome may show a
 developer-mode extensions notice at startup. Works on Chrome 120 or newer (and
 Chromium browsers at that level).
 
+The release also contains `ram-nudge-<version>-store.zip` (same files, `manifest.json` at the archive root) for
+Chrome Web Store upload; for manual install use the `-chrome.zip`. Privacy: the site's [privacy page](https://particular-labs.github.io/ram-nudge/privacy.html).
+
 Optionally download `SHA256SUMS.json` from the same release and compare the zip's
 SHA-256 with its entry in that file. Run in your downloads folder:
 

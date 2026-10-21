@@ -70,6 +70,12 @@ test('pack is reproducible, below 300 KB, complete and verifiable after extracti
     manifest.options_ui.page, ...Object.values(manifest.icons), ...Object.values(manifest.action.default_icon),
     `_locales/${manifest.default_locale}/messages.json`, 'fonts/OFL.txt', 'LICENSE'];
   for (const name of references) assert.ok(files.has(prefix + name), `missing ${name}`);
+  // The Chrome Web Store zip holds the same files with manifest.json at the root.
+  assert.equal(a.storeFilename, `ram-nudge-${manifest.version}-store.zip`);
+  const store = readZip(a.storeZip);
+  assert.deepEqual([...store.keys()], [...files.keys()].map(n => n.slice(prefix.length)));
+  assert.deepEqual(JSON.parse(store.get('manifest.json')), manifest);
+  assert.equal(savedSums[a.storeFilename], digest(a.storeZip));
   // Compare every shipped member with source, catching silent omissions beyond manifest references.
   for (const { name, data } of await collectFiles()) assert.deepEqual(files.get(prefix + name), data);
 });

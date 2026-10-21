@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy — RAM Nudge</title>
+  <meta name="description" content="RAM Nudge collects no data and sends nothing anywhere. Everything stays in your browser.">
+  <link rel="alternate" hreflang="en" href="privacy.html">
+  <link rel="alternate" hreflang="es" href="es/privacy.html">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <a href="index.html">RAM Nudge</a>
+  <nav aria-label="Language"><a href="privacy.html" lang="en" aria-current="page">EN</a><a href="es/privacy.html" lang="es">ES</a></nav>
+</header>
+<main id="main">
+  <section aria-labelledby="title">
+    <h1 id="title" style="font-size:clamp(2.4rem,6vw,3.6rem)">Privacy</h1>
+    <p class="pitch">RAM Nudge collects no data and sends nothing anywhere. Everything stays on your device.</p>
+    <p class="quiet">Last updated: October 21, 2026.</p>
+  </section>
+  <section aria-labelledby="what">
+    <h2 id="what">What RAM Nudge does with your data</h2>
+    <ul>
+      <li><strong>No data is collected.</strong> No account, no analytics, no ads, no tracking, no crash reports.</li>
+      <li><strong>No data is sent.</strong> The extension makes no network requests and loads no remote code, fonts or images. It talks to no server, ours or anyone else’s.</li>
+      <li><strong>Everything stays on your device.</strong> Free-memory readings are used on the spot to choose the pebble’s mood and to decide when to nudge you. Your settings (the low-memory threshold and snooze time) and the nudge state (current mood, snooze, a small counter) are saved in your browser with Chrome’s extension storage. The nudge state is cleared whenever Chrome restarts; everything is removed when you uninstall the extension.</li>
+      <li><strong>Your tabs stay private.</strong> RAM Nudge counts your tabs (the popup shows the number). When you click <em>Free memory now</em>, it puts the ones you are not using to sleep. It never reads their titles, addresses or page content.</li>
+      <li><strong>The clipboard is only written to.</strong> When you click <em>Restart Chrome</em>, it copies the text <code>chrome://restart</code> so you can paste it. It never reads your clipboard.</li>
+    </ul>
+  </section>
+  <section aria-labelledby="perms">
+    <h2 id="perms">Permissions, and why</h2>
+    <dl>
+      <dt><code>system.memory</code></dt><dd>Read total and free memory, so the pebble knows when your computer is running low.</dd>
+      <dt><code>alarms</code></dt><dd>Check memory every 30 seconds, even while the popup is closed.</dd>
+      <dt><code>storage</code></dt><dd>Keep your settings and the nudge state in your browser.</dd>
+      <dt><code>notifications</code></dt><dd>Show the low-memory nudge.</dd>
+    </dl>
+    <p>No tab, history, website or account access permissions are requested.</p>
+  </section>
+  <section aria-labelledby="more">
+    <h2 id="more">Changes and contact</h2>
+    <p>If this ever changes, it will be updated here and in the release notes before the new version ships. RAM Nudge is open source under the MIT license: <a href="https://github.com/particular-labs/ram-nudge">read the source on GitHub</a>.</p>
+    <p>Questions? Write to <a href="mailto:admin@particularlabs.com">admin@particularlabs.com</a>.</p>
+  </section>
+</main>
+<footer><a href="https://github.com/particular-labs/ram-nudge">by Particular Labs · open source</a><br>Free, no account. Nothing leaves your browser.</footer>
+</body>
+</html>
