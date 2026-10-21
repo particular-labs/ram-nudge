@@ -1,0 +1,87 @@
+{
+  "extName": {
+    "message": "RAM Nudge"
+  },
+  "extDescription": {
+    "message": "Warns you when your computer is low on memory and helps you restart Chrome without losing your tabs."
+  },
+  "noteTitle": {
+    "message": "Your computer is low on memory"
+  },
+  "noteMessage": {
+    "message": "Restarting Chrome can free some up, and your tabs come back."
+  },
+  "restartBtn": {
+    "message": "Restart Chrome"
+  },
+  "snoozeBtn": {
+    "message": "Snooze"
+  },
+  "popupOk": {
+    "message": "Memory looks fine"
+  },
+  "popupHigh": {
+    "message": "Your computer is low on memory"
+  },
+  "popupDetail": {
+    "message": "$PCT$% free · $TABS$ tabs open",
+    "placeholders": {
+      "pct": {
+        "content": "$1"
+      },
+      "tabs": {
+        "content": "$2"
+      }
+    }
+  },
+  "restartGuide": {
+    "message": "Copied! Paste this in the address bar and press Enter; your tabs come back."
+  },
+  "startupLink": {
+    "message": "Make sure my tabs come back"
+  },
+  "optionsLink": {
+    "message": "Settings"
+  },
+  "welcomeTitle": {
+    "message": "Welcome to RAM Nudge"
+  },
+  "welcomeIntro": {
+    "message": "RAM Nudge watches your computer's free memory. When it runs low, it offers a Chrome restart. One quick setup step makes sure your tabs come back afterwards."
+  },
+  "welcomeOpen": {
+    "message": "Open Chrome's startup settings"
+  },
+  "welcomeStep": {
+    "message": "In “On startup”, choose “Continue where you left off”."
+  },
+  "welcomeNote": {
+    "message": "Chrome doesn't let extensions read this setting, so RAM Nudge can't check it for you. Nothing you do here leaves your browser."
+  },
+  "optionsTitle": {
+    "message": "RAM Nudge settings"
+  },
+  "optThreshold": {
+    "message": "Warn me when free memory drops below (%)"
+  },
+  "optClear": {
+    "message": "Back to normal above $PCT$%.",
+    "placeholders": {
+      "pct": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSnooze": {
+    "message": "Snooze length (minutes)"
+  },
+  "optSaved": {
+    "message": "Saved."
+  },
+  "popupError": {
+    "message": "Couldn't read memory right now"
+  },
+  "restartGuideManual": {
+    "message": "Couldn't copy. Type chrome://restart in the address bar and press Enter; your tabs come back."
+  }
+}

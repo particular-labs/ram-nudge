@@ -1,0 +1,87 @@
+{
+  "extName": {
+    "message": "RAM Nudge"
+  },
+  "extDescription": {
+    "message": "Te avisa cuando tu computadora tiene poca memoria y te ayuda a reiniciar Chrome sin perder tus pestañas."
+  },
+  "noteTitle": {
+    "message": "Tu computadora tiene poca memoria"
+  },
+  "noteMessage": {
+    "message": "Reiniciar Chrome puede liberar un poco, y tus pestañas vuelven."
+  },
+  "restartBtn": {
+    "message": "Reiniciar Chrome"
+  },
+  "snoozeBtn": {
+    "message": "Posponer"
+  },
+  "popupOk": {
+    "message": "La memoria está bien"
+  },
+  "popupHigh": {
+    "message": "Tu computadora tiene poca memoria"
+  },
+  "popupDetail": {
+    "message": "$PCT$% libre · $TABS$ pestañas abiertas",
+    "placeholders": {
+      "pct": {
+        "content": "$1"
+      },
+      "tabs": {
+        "content": "$2"
+      }
+    }
+  },
+  "restartGuide": {
+    "message": "¡Copiado! Pégalo en la barra de direcciones y presiona Enter; tus pestañas vuelven."
+  },
+  "startupLink": {
+    "message": "Asegurar que mis pestañas vuelvan"
+  },
+  "optionsLink": {
+    "message": "Ajustes"
+  },
+  "welcomeTitle": {
+    "message": "Te damos la bienvenida a RAM Nudge"
+  },
+  "welcomeIntro": {
+    "message": "RAM Nudge vigila la memoria libre de tu computadora. Cuando es poca, te ofrece reiniciar Chrome. Un paso de configuración asegura que tus pestañas vuelvan después."
+  },
+  "welcomeOpen": {
+    "message": "Abrir la configuración de inicio de Chrome"
+  },
+  "welcomeStep": {
+    "message": "En “Al abrir Chrome”, elige “Continuar donde lo dejaste”."
+  },
+  "welcomeNote": {
+    "message": "Chrome no permite que las extensiones lean este ajuste, así que RAM Nudge no puede comprobarlo por ti. Nada de lo que haces aquí sale de tu navegador."
+  },
+  "optionsTitle": {
+    "message": "Ajustes de RAM Nudge"
+  },
+  "optThreshold": {
+    "message": "Avisarme cuando la memoria libre baje de (%)"
+  },
+  "optClear": {
+    "message": "Vuelve a normal por encima de $PCT$%.",
+    "placeholders": {
+      "pct": {
+        "content": "$1"
+      }
+    }
+  },
+  "optSnooze": {
+    "message": "Duración de la pausa (minutos)"
+  },
+  "optSaved": {
+    "message": "Guardado."
+  },
+  "popupError": {
+    "message": "No se pudo leer la memoria ahora"
+  },
+  "restartGuideManual": {
+    "message": "No se pudo copiar. Escribe chrome://restart en la barra de direcciones y presiona Enter; tus pestañas vuelven."
+  }
+}
