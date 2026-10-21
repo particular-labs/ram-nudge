@@ -62,16 +62,51 @@ the extension never sees tab titles or addresses.
 Nothing leaves your browser. There is no server, no analytics and no network
 request.
 
-## Install (load unpacked)
+## Install (free, no account)
 
-1. Download or clone this folder.
-2. Open `chrome://extensions` and turn on **Developer mode**.
-3. Click **Load unpacked** and pick this folder.
+Start at [the RAM Nudge website](https://particular-labs.github.io/ram-nudge/)
+([Español](https://particular-labs.github.io/ram-nudge/es/)), or
+[download the latest zip](https://github.com/particular-labs/ram-nudge/releases/latest).
+
+1. Download the extension zip from the release.
+2. Unzip it to get one RAM Nudge folder.
+3. Move that folder somewhere permanent. Chrome loads it from there; **do not delete it**.
+4. Copy `chrome://extensions` into Chrome's address bar and press Enter.
+5. Turn on **Developer mode**.
+6. Click **Load unpacked** and pick the folder you kept.
+
+To update, download and unzip the new version, replace the contents of the permanent
+folder with the new contents, then click **Reload** on its card in `chrome://extensions`.
+There is no auto-update until the Chrome Web Store version. Chrome may show a
+developer-mode extensions notice at startup. Works on Chrome 120 or newer (and
+Chromium browsers at that level).
+
+Optionally download `SHA256SUMS.json` from the same release and compare the zip's
+SHA-256 with its entry in that file. Run in your downloads folder:
+
+```sh
+# macOS
+shasum -a 256 ram-nudge-*-chrome.zip
+# Linux
+sha256sum ram-nudge-*-chrome.zip
+```
+
+```powershell
+# Windows PowerShell
+Get-FileHash .\ram-nudge-*-chrome.zip -Algorithm SHA256
+```
 
 ## Develop
 
-`npm test` runs the unit tests for the threshold logic (Node 20+, no dependencies).
-There is no build step.
+`npm test` runs the extension, packaging and site tests (Node 22+, no dependencies).
+The extension and static site need no build step. `node scripts/pack.mjs` writes a
+reproducible extension zip and archive/per-file SHA-256 hashes to `dist/`.
+
+Maintainers release by bumping the version in `manifest.json`, merging to main,
+and pushing the matching `vX.Y.Z` tag. The release decision = pushing the tag:
+the workflow checks the version, runs tests, packs a normal GitHub release (so
+`/releases/latest` resolves for the site's Download button) and dispatches Pages.
+No npm or Chrome Web Store publishing is involved.
 
 ## Credits
 

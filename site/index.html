@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAM Nudge — a little pebble, a timely nudge</title>
+  <meta name="description" content="A free pebble companion for Chrome that watches free memory. Download, unzip and install. No account, no tracking.">
+  <link rel="alternate" hreflang="en" href="index.html">
+  <link rel="alternate" hreflang="es" href="es/index.html">
+  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <a href="index.html">RAM Nudge</a>
+  <nav aria-label="Language"><a href="index.html" lang="en" aria-current="page">EN</a><a href="es/index.html" lang="es">ES</a></nav>
+</header>
+<main id="main">
+  <div class="hero">
+    <div>
+      <h1>RAM Nudge</h1>
+      <p class="pitch">A small pebble that watches your free memory and nudges you before Chrome slows down.</p>
+      <a class="download" href="https://github.com/particular-labs/ram-nudge/releases/latest">Download the latest zip</a>
+      <p class="quiet">Free. No account. Install it yourself in a few steps. <a href="#install">Here’s how</a></p>
+    </div>
+    <img src="img/stage-1.svg" width="180" height="180" alt="Your calm, green pebble companion">
+  </div>
+  <section aria-labelledby="moods">
+    <h2 id="moods">A little face. Five moods.</h2>
+    <p>The pebble on your toolbar changes as your computer’s free memory gets lower. A quiet glance, then a nudge when it’s low.</p>
+    <ul class="moods"><li><img src="img/stage-1.svg" width="64" height="64" alt=""><span>Calm</span></li><li><img src="img/stage-2.svg" width="64" height="64" alt=""><span>Strained</span></li><li><img src="img/stage-3.svg" width="64" height="64" alt=""><span>Sweating</span></li><li><img src="img/stage-4.svg" width="64" height="64" alt=""><span>Red</span></li><li><img src="img/stage-5.svg" width="64" height="64" alt=""><span>Melting</span></li></ul>
+    <div class="features">
+      <div><h3>Restart, with one paste</h3>
+      <p>Restart Chrome copies <code>chrome://restart</code> and opens a new tab. Press <strong>Cmd+V on Mac</strong> or <strong>Ctrl+V on Windows/Linux</strong>, then Enter.</p>
+      <p>Choose <strong>Continue where you left off</strong> in Chrome’s startup settings so Chrome restores your tabs. If another extension replaces your new tab, press Cmd+L (Mac) or Ctrl+L (Windows/Linux) before pasting.</p></div>
+      <div><h3>Free memory now</h3>
+      <p>Put other tabs to sleep without restarting. Active tabs in each window, pinned tabs, tabs playing sound and tabs excluded from Chrome’s Memory Saver stay awake.</p>
+      <p>Sleeping tabs reload when you click them. Save your work first: unsaved changes in a page can be lost.</p></div>
+    </div>
+    <div class="shots"><figure><img src="img/en-popup-stage1.webp" width="320" height="470" loading="lazy" alt="RAM Nudge popup: Room to breathe"><figcaption>Room to breathe</figcaption></figure><figure><img src="img/en-popup-stage3.webp" width="320" height="470" loading="lazy" alt="RAM Nudge popup: Getting a little full"><figcaption>Getting a little full</figcaption></figure><figure><img src="img/en-popup-stage5.webp" width="320" height="470" loading="lazy" alt="RAM Nudge popup: Time for a nudge"><figcaption>Time for a nudge</figcaption></figure></div>
+  </section>
+  <section id="install" class="install" aria-labelledby="install-title">
+    <div><h2 id="install-title">Make room for a pebble.</h2>
+    <p>Install for free, without an account. Works on Chrome 120 or newer (and Chromium browsers at that level).</p>
+    <p class="quiet">This is a manual install while the Chrome Web Store version is on the way.</p></div>
+    <div><ol><li id="install-step-1"><a href="https://github.com/particular-labs/ram-nudge/releases/latest">Download the latest zip</a> from GitHub Releases.</li><li id="install-step-2">Unzip it. You’ll get one RAM Nudge folder.</li><li id="install-step-3">Move that folder somewhere permanent. Chrome loads the extension from there: <strong>do not delete it</strong>.</li><li id="install-step-4">Copy <code>chrome://extensions</code> into Chrome’s address bar and press Enter.</li><li id="install-step-5">Turn on <strong>Developer mode</strong> at the top of the page.</li><li id="install-step-6">Click <strong>Load unpacked</strong> and choose the folder you kept.</li></ol>
+    <details><summary>Optional: check the download</summary>
+      <p>Download SHA256SUMS.json from the same release. In your downloads folder, run one command below and compare its SHA-256 with the zip’s entry in that file.</p>
+      <p>macOS</p><pre><code>shasum -a 256 ram-nudge-*-chrome.zip</code></pre>
+      <p>Linux</p><pre><code>sha256sum ram-nudge-*-chrome.zip</code></pre>
+      <p>Windows PowerShell</p><pre><code>Get-FileHash .\ram-nudge-*-chrome.zip -Algorithm SHA256</code></pre>
+    </details></div>
+  </section>
+  <section aria-labelledby="updates">
+    <h2 id="updates">A new version? Same little home.</h2>
+    <p>Download the new zip, unzip it, and replace the contents of your permanent extension folder with the new contents. In <code>chrome://extensions</code>, click <strong>Reload</strong> on the RAM Nudge card.</p>
+    <p>There are no automatic updates until the Chrome Web Store version. Chrome may show a developer-mode extensions notice at startup.</p>
+  </section>
+  <section aria-labelledby="privacy">
+    <h2 id="privacy">Your memory. Your browser.</h2>
+    <p>Nothing leaves your browser. No account, no tracking, no network calls.</p>
+    <h3>Four permissions, in plain words</h3>
+    <dl>
+      <dt><code>system.memory</code></dt><dd>Read total and free system memory.</dd>
+      <dt><code>alarms</code></dt><dd>Check memory every 30 seconds.</dd>
+      <dt><code>storage</code></dt><dd>Keep your settings and nudge state in your browser.</dd>
+      <dt><code>notifications</code></dt><dd>Show a low-memory nudge.</dd>
+    </dl>
+    <p>No tab or website access permissions. RAM Nudge can count and put tabs to sleep, but cannot read their titles, addresses or page content.</p>
+    <p>Open source under the MIT license. <a href="https://github.com/particular-labs/ram-nudge">Read the source on GitHub</a>.</p>
+  </section>
+</main>
+<footer><a href="https://github.com/particular-labs/ram-nudge">by Particular Labs · open source</a><br>Free, no account. Nothing leaves your browser.</footer>
+</body>
+</html>

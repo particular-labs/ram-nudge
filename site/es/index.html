@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RAM Nudge — una piedrita, un aviso a tiempo</title>
+  <meta name="description" content="Una piedrita gratis para Chrome que vigila la memoria libre. Descarga, descomprime e instala. Sin cuenta ni rastreo.">
+  <link rel="alternate" hreflang="en" href="../index.html">
+  <link rel="alternate" hreflang="es" href="../es/index.html">
+  <link rel="icon" href="../img/favicon.png">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Ir al contenido</a>
+<header>
+  <a href="../index.html">RAM Nudge</a>
+  <nav aria-label="Idioma"><a href="../index.html" lang="en">EN</a><a href="../es/index.html" lang="es" aria-current="page">ES</a></nav>
+</header>
+<main id="main">
+  <div class="hero">
+    <div>
+      <h1>RAM Nudge</h1>
+      <p class="pitch">Una piedrita que vigila tu memoria libre y te avisa antes de que Chrome se vuelva lento.</p>
+      <a class="download" href="https://github.com/particular-labs/ram-nudge/releases/latest">Descargar el zip más reciente</a>
+      <p class="quiet">Gratis. Sin cuenta. Instálala tú en unos pocos pasos. <a href="#install">Así se instala</a></p>
+    </div>
+    <img src="../img/stage-1.svg" width="180" height="180" alt="Tu compañera piedrita verde, tranquila">
+  </div>
+  <section aria-labelledby="moods">
+    <h2 id="moods">Una carita. Cinco estados.</h2>
+    <p>La piedrita en tu barra cambia cuando baja la memoria libre de tu computadora. Una mirada discreta y un aviso cuando queda poca.</p>
+    <ul class="moods"><li><img src="../img/stage-1.svg" width="64" height="64" alt=""><span>Calma</span></li><li><img src="../img/stage-2.svg" width="64" height="64" alt=""><span>Tensión</span></li><li><img src="../img/stage-3.svg" width="64" height="64" alt=""><span>Sudor</span></li><li><img src="../img/stage-4.svg" width="64" height="64" alt=""><span>Rojo</span></li><li><img src="../img/stage-5.svg" width="64" height="64" alt=""><span>Derretido</span></li></ul>
+    <div class="features">
+      <div><h3>Reinicia con un solo pegado</h3>
+      <p>Reiniciar Chrome copia <code>chrome://restart</code> y abre una pestaña nueva. Presiona <strong>Cmd+V en Mac</strong> o <strong>Ctrl+V en Windows/Linux</strong> y luego Enter.</p>
+      <p>Elige <strong>Continuar donde lo dejaste</strong> en los ajustes de inicio de Chrome para recuperar tus pestañas. Si otra extensión reemplaza la pestaña nueva, presiona Cmd+L (Mac) o Ctrl+L (Windows/Linux) antes de pegar.</p></div>
+      <div><h3>Liberar memoria ahora</h3>
+      <p>Pon otras pestañas a dormir sin reiniciar. Las activas de cada ventana, las fijadas, las que reproducen sonido y las excluidas del Ahorro de memoria de Chrome siguen despiertas.</p>
+      <p>Las pestañas dormidas se recargan al hacer clic. Guarda tu trabajo primero: los cambios sin guardar en una página pueden perderse.</p></div>
+    </div>
+    <div class="shots"><figure><img src="../img/es-popup-stage1.webp" width="320" height="470" loading="lazy" alt="Ventana de RAM Nudge: Espacio para respirar"><figcaption>Espacio para respirar</figcaption></figure><figure><img src="../img/es-popup-stage3.webp" width="320" height="470" loading="lazy" alt="Ventana de RAM Nudge: Se está llenando"><figcaption>Se está llenando</figcaption></figure><figure><img src="../img/es-popup-stage5.webp" width="320" height="470" loading="lazy" alt="Ventana de RAM Nudge: Hora de un aviso"><figcaption>Hora de un aviso</figcaption></figure></div>
+  </section>
+  <section id="install" class="install" aria-labelledby="install-title">
+    <div><h2 id="install-title">Hazle un lugar a tu piedrita.</h2>
+    <p>Instálala gratis, sin cuenta. Funciona en Chrome 120 o superior (y navegadores Chromium de ese nivel).</p>
+    <p class="quiet">Esta instalación es manual mientras llega la versión de Chrome Web Store.</p></div>
+    <div><ol><li id="install-step-1"><a href="https://github.com/particular-labs/ram-nudge/releases/latest">Descarga el zip más reciente</a> desde GitHub Releases.</li><li id="install-step-2">Descomprímelo. Obtendrás una carpeta de RAM Nudge.</li><li id="install-step-3">Mueve la carpeta a un lugar permanente. Chrome carga la extensión desde ahí: <strong>no la borres</strong>.</li><li id="install-step-4">Copia <code>chrome://extensions</code> en la barra de direcciones de Chrome y presiona Enter.</li><li id="install-step-5">Activa el <strong>Modo de desarrollador</strong> en la parte superior.</li><li id="install-step-6">Haz clic en <strong>Cargar descomprimida</strong> y elige la carpeta que guardaste.</li></ol>
+    <details><summary>Opcional: verifica la descarga</summary>
+      <p>Descarga SHA256SUMS.json de la misma versión. En tu carpeta de descargas, ejecuta uno de estos comandos y compara el SHA-256 con la entrada del zip en ese archivo.</p>
+      <p>macOS</p><pre><code>shasum -a 256 ram-nudge-*-chrome.zip</code></pre>
+      <p>Linux</p><pre><code>sha256sum ram-nudge-*-chrome.zip</code></pre>
+      <p>Windows PowerShell</p><pre><code>Get-FileHash .\ram-nudge-*-chrome.zip -Algorithm SHA256</code></pre>
+    </details></div>
+  </section>
+  <section aria-labelledby="updates">
+    <h2 id="updates">¿Nueva versión? La misma casita.</h2>
+    <p>Descarga el nuevo zip, descomprímelo y reemplaza el contenido de tu carpeta permanente de la extensión por el nuevo contenido. En <code>chrome://extensions</code>, haz clic en <strong>Recargar</strong> en la tarjeta de RAM Nudge.</p>
+    <p>No hay actualizaciones automáticas hasta la versión de Chrome Web Store. Chrome puede mostrar un aviso de extensiones en modo de desarrollador al iniciar.</p>
+  </section>
+  <section aria-labelledby="privacy">
+    <h2 id="privacy">Tu memoria. Tu navegador.</h2>
+    <p>Nada sale de tu navegador. Sin cuenta, sin rastreo, sin llamadas de red.</p>
+    <h3>Cuatro permisos, en palabras sencillas</h3>
+    <dl>
+      <dt><code>system.memory</code></dt><dd>Leer la memoria total y libre del sistema.</dd>
+      <dt><code>alarms</code></dt><dd>Comprobar la memoria cada 30 segundos.</dd>
+      <dt><code>storage</code></dt><dd>Guardar tus ajustes y el estado de los avisos en tu navegador.</dd>
+      <dt><code>notifications</code></dt><dd>Mostrar un aviso de poca memoria.</dd>
+    </dl>
+    <p>Sin permisos de acceso a pestañas o sitios web. RAM Nudge puede contar y dormir pestañas, pero no leer sus títulos, direcciones ni contenido.</p>
+    <p>Código abierto con licencia MIT. <a href="https://github.com/particular-labs/ram-nudge">Ver el código en GitHub</a>.</p>
+  </section>
+</main>
+<footer><a href="https://github.com/particular-labs/ram-nudge">por Particular Labs · código abierto</a><br>Gratis, sin cuenta. Nada sale de tu navegador.</footer>
+</body>
+</html>
