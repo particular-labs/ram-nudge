@@ -34,9 +34,6 @@
       }
     }
   },
-  "restartGuide": {
-    "message": "Copied! Paste this in the address bar and press Enter; your tabs come back."
-  },
   "startupLink": {
     "message": "Make sure my tabs come back"
   },
@@ -83,5 +80,13 @@
   },
   "restartGuideManual": {
     "message": "Couldn't copy. Type chrome://restart in the address bar and press Enter; your tabs come back."
+  },
+  "restartHint": {
+    "message": "Opens a new tab. Press $KEY$, then Enter: Chrome restarts and your tabs come back.",
+    "placeholders": {
+      "key": {
+        "content": "$1"
+      }
+    }
   }
 }

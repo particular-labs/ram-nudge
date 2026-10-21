@@ -25,12 +25,15 @@ System Settings > Notifications. The badge and popup work either way.
 
 ## About the restart button
 
-Chrome blocks extensions from opening `chrome://restart`. The button copies
-`chrome://restart` to your clipboard; paste it in the address bar and press
-Enter. Chrome restarts and your tabs come back (in testing this worked with
-the startup setting at its default, but "Continue where you left off" is what
-protects your tabs on a normal quit or a crash). A page with unsaved changes may
-ask to confirm first.
+Chrome blocks extensions from opening `chrome://restart`, so the button does the
+next best thing: it copies `chrome://restart` and opens a new tab (Chrome selects
+its address bar). The popup tells you the rest: press **Cmd+V** (Ctrl+V on
+Windows and Linux), then **Enter**. Chrome restarts and your tabs come back (in
+testing this worked with the startup setting at its default, but "Continue where
+you left off" is what protects your tabs on a normal quit or a crash). A page
+with unsaved changes may ask to confirm first. If another extension replaces
+the new tab page, press Cmd+L (Ctrl+L) first. If copying fails, the popup
+shows the address to type instead.
 
 ## Permissions and why
 

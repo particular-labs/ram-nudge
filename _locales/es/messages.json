@@ -34,9 +34,6 @@
       }
     }
   },
-  "restartGuide": {
-    "message": "¡Copiado! Pégalo en la barra de direcciones y presiona Enter; tus pestañas vuelven."
-  },
   "startupLink": {
     "message": "Asegurar que mis pestañas vuelvan"
   },
@@ -83,5 +80,13 @@
   },
   "restartGuideManual": {
     "message": "No se pudo copiar. Escribe chrome://restart en la barra de direcciones y presiona Enter; tus pestañas vuelven."
+  },
+  "restartHint": {
+    "message": "Abre una pestaña nueva. Presiona $KEY$ y luego Enter: Chrome se reinicia y tus pestañas vuelven.",
+    "placeholders": {
+      "key": {
+        "content": "$1"
+      }
+    }
   }
 }
